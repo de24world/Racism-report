@@ -9,6 +9,10 @@ import {
   Breadcrumbs,
 } from "@material-ui/core/";
 
+// Next.js
+import { useTranslation } from "next-i18next";
+
+
 // Interface
 import { IDataProps } from "../../interfaces/interfaces";
 
@@ -35,6 +39,8 @@ interface ChartProps {
 function Charts({ items }: ChartProps): JSX.Element {
   const classes = useStyles();
   const [chartState, setChartState] = useState("victim-chart");
+  const { t } = useTranslation("common");
+
 
   const victimChartChange = () => {
     setChartState("victim-chart");
@@ -64,22 +70,22 @@ function Charts({ items }: ChartProps): JSX.Element {
     <>
       <Breadcrumbs aria-label="breadcrumb">
         <Button color="primary" size="large" onClick={victimChartChange}>
-          01. Victim
+          01. {t("Victim")}
         </Button>
         <Button color="primary" size="large" onClick={offenderChartChange}>
-          02. Offender
+          02. {t("Offender")}
         </Button>
         <Button color="primary" size="large" onClick={countryChartChange}>
-          03. Country
+          03. {t("Country")}
         </Button>
         <Button color="primary" size="large" onClick={cityChartChange}>
-          04. City
+          04. {t("City")}
         </Button>
         <Button color="primary" size="large" onClick={levelChartChange}>
-          05. Level
+          05. {t("Level")}
         </Button>
         <Button color="primary" size="large" onClick={dateChartChange}>
-          06. Date
+          06. {t("Date")}
         </Button>
       </Breadcrumbs>
       <div className={classes.charts}>
